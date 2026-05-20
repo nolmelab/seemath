@@ -76,6 +76,16 @@
   ],
 )
 
+#let example(title, body) = block(
+  stroke: (left: 1pt + gray.lighten(50%)),
+  inset: (left: 1em),
+  width: 100%,
+  [
+    #text(weight: "bold", fill: rgb("a00f10"))[Example. #title] \
+    #v(0.3em)
+    #body
+  ],
+)
 
 // 상세 설명용 Definition (직관과 예시 내장형)
 #let d-definition(title, intuition: none, example: none, body) = block(
@@ -158,3 +168,4 @@
   ],
 )
 
+#let comp = math.class("binary", scale(60%, math.circle))

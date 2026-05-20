@@ -224,11 +224,233 @@ $x + i y = r e^(i phi) = r(cos phi + i sin phi)$ 에 모든 것이 들어있다.
 
 ]
 
-= Exercises
+= Chap. 2 - Examples of Functions
 
-공부하면서 자주 생각나지 않거나 막혔던 부분들, 중요한 문제들을 정리하여 수시로 꺼내 보도록
-한다. 중요한 증명을 단계로 나눠서 연습 문제로 만들어도 좋다.
+내게 수학은 예시들이다. 이론은 예시를 분류하기위해 필요하다. - John B. Conway
 
+== 3.1 Mobius Transformations
+
+#definition("3.1.1 linear fractional transformation")[
+  A linear fractional transformation is a function of the form
+  $ f(z) = (a z + b) / (c z + d) $
+  where $a, b, c, d in CC$.
+  If $a d - b c eq.not 0$, then $f$ is a Mobius transformation.
+]
+
+지극히 단순해 보이는 이런 변환이 복소수에서는 풍부한 기하학적 성질을 갖는다.
+
+#idea("뫼비우스 변환의 조건")[
+  $a d - b c eq.not 0$는 여러 곳에서 쓰인다.
+
+  - injective 하다는 조건
+  - 미분 값이 0이 아니라는 조건
+]
+
+#theorem("3.1.2 the inverse of Mobius transformation")[
+  Let $a, b, c, d in CC$ with $c eq.not 0$. Then the Mobius transformation
+  $f: CC\\{-d/c} arrow CC \\ {a/c}$
+  given by $f(z) = (a z + b) / ( c z + d)$ has the inverse function
+  $f^(-1): CC \\ {a/c} arrow CC \\ {-d/c}$ given by
+  $ f^(-1) = (d z - b) / (-c z + a) . $
+]
+
+#idea("연습 - 위의 증명")[
+  - [1] injective를 보임
+  - [2] 역함수가 있음
+    - surjective 조건이 보완됨
+]
+
+#theorem("3.1.4 변환의 형태")[
+  $f(z) = (a z + b ) / (c z + d)$ 일 때, $c eq.not 0$ 라면
+  $ f(z) = (b c - a d) / (c^2) 1 / (z + d/c) + a/c $
+  이다.
+]
+
+#idea("질문")[
+  Q. $c eq 0$ 일 때는 ?
+
+  Q. 이동, 확대(dilations), 역전(inversion)은 무엇인가?
+]
+
+#theorem("3.1.5 뫼비우스 변환 특성")[
+  뫼비우스 변환은 원과 직선을 원 또는 직선으로 변환한다.
+]
+
+#proof[
+  - 원과 직선을 통합하는 이차식으로 표시
+  - $u + i v = (x - i y)/(x^2 + y^2)$로 위의 이차식을 변형
+
+  원과 직선을 표현하는 이차식은 이차곡선 중의 하나이다. 처음에 이렇게 접근하기가 어렵다.
+]
+
+#example("3.1.6과 추가 예시")[
+  1)  $f(z) = (z - 1) / (i z + i)$ 가 단위원을 직선으로 보낸다.
+
+  2) $f(z) = 1/z$ 는 $Re(z) = x_0$ 인 직선을 $1/(2x_0)$ 반지름에 $(1/(2x_0), 0)$에 중심을
+  둔 원으로 보낸다.
+
+  둘 다 어떻게 확인할까? 직관적이고 쉬운 방법은? 3.1.5의 증명에 쓰인 아이디어도 유용하다.
+]
+
+== 3.2 Infinity and the Cross Ratio
+
+#definition("3.2.1")[
+  $f: G arrow CC$ 함수의으 발산 정의를 한다. $z arrow z_0, z arrow oo$일 경우 실수와 비슷하게 정의한다.
+]
+
+#example("3.2.2")[
+  $ lim_(z arrow 0) 1/(z^2) $
+
+  어디로 가는가? 적절한 정의에 따라 확인.
+]
+
+#example("3.2.3")[
+  $ f(z) = (a z + b) / (c z + d) $ 일 때,
+  $ lim_(z arrow oo) f(z) $
+
+  이건 어떻게 될까? 주어진 $epsilon gt 0$에 대해 $|z| gt N$일 때 수렴하는 값과 차이가
+  $epsilon$보다 작아지는 $N$ 값을 찾아야 한다.
+]
+
+#definition("3.2.4")[
+  확장 복소 평면 $hat(CC) := CC union {oo}$은 다음 조건을 만족한다.
+
+  $(a) ~ (e)$까지 조건들이 있다. lim을 통합하는 것이 목적이라
+  필요한 극한 형태들을 포함한다.
+]
+
+#theorem("3.2.5")[
+  $hat(CC)$에서 뫼비우스 변환이 전체 공간으로 확장될 수 있다.
+
+  어떻게 확장할 수 있는가? $oo$를 포함한다는 점과 3.2.4의 정의를 활용한다.
+]
+
+#idea("뫼비우스 변환의 확장")[
+  any Mobius transformation of $hat(CC)$ transforms circles to circles.
+
+  라인을 $oo$를 지나는 원으로 생각하면 리만 구 상의 원으로 볼 수 있다.
+]
+
+#definition("3.2.8")[
+  $[z, z_1, z_2, z_3] := ((z-z_1)(z_2-z_3)) / ((z - z_3)(z_2 - z_1))$
+
+  $z_1 arrow 0, z_2 arrow 1, z_3 arrow oo$로 변환하는 뫼비우스 변환이다.
+]
+
+#example("3.2.9")[
+  $ f(z) = (z-1) / (i z + i) $
+
+  위 변환은 cross ratio 변환이다.
+]
+
+#theorem("3.2.10")[
+  cross ratio 변환은 뫼비우스 변환으로 $f(z_1) = 0, f(z_2) = 1, f(z_3) = oo$이고,
+  $g(z_1) = 0, g(z_2) = 1, g(z_3) = oo$인 또 다른 뫼비우스 변환이 있다면 $f$와 같다.
+  (같은 함수 값을 갖는 변환은 고유하다)
+]
+
+이와 같은 전개에서 무엇을 이해한 것이어야 할까?
+
+#theorem("3.2.11")[
+  $z_1, z_2, z_3$와 $w_1, w_2, w_3$가 각각 다른 $hat(CC)$의 점일 때, $h(z_1) = w_1, h(z_2) = w_2, h(z_3) = w_3$를 만족하는 고유한 뫼비우스 변환 $h$가 있다.
+]
+#proof[
+  - cross ratio $f(z) = [z, z_1, z_2, z_3]$와 $g(z) = [z, w_1, w_2, w_3]$를 살펴본다.
+  - $h = g^(-1) comp f$
+]
+
+$oo$의 도입은 리만 구면으로 나아가는 첫 단계이다. cross ratio 변환은 3.2.11의 결과와 같이
+세점이 주어지면 확정되는 뫼비우스 변환을 찾기위한 것이다.
+
+무엇을 기억할 것인가? 무엇을 알아야 이해했다고 할 수 있나? 어디에 쓸 것인가?
+다음 단계는 무엇일까? 어느 시절에 고민했던 내용일까?
+
+
+
+== 3.3 Stereographic Projection
+
+$oo$의 추가로 복소 평면에 유용한 구조가 생긴다. stereographic projection이라는
+복소 평면을 구면으로 매핑하는 함수 형태의 투영이 가능하게 된다. 구면은 원점에
+중심을 두고 (0, 0, 1)에서 x-y 평면(복소 평면)에 선을 그어서 점들을 연결한다.
+이렇게 보면 복소 평면의 직선은 구면 상의 원이 된다.
+
+#idea("시각화")[
+  입체 투영을 구면 상의 원들이 복소 평면에서 직선이나 원으로 변하는 것을 볼 수 있도록
+  manim으로 시각화 한다.
+]
+
+#theorem("3.3.3")[
+  $phi : SS^2 arrow CC$는 구면 상의 점을 (0, 0, 1)에서 복소평면으로 매핑한다.
+  $phi^(-1)$도 구할 수 있다.
+
+  $phi$와 $phi^(-1)$를 계산한다.
+]
+
+#idea("3.3.3의 계산")[
+  - 직선의 방정식으로 $phi$가 투영하는 좌표를 계산할 수 있다.
+  - 이 좌표값과 구면의 방정식으로 $phi^(-1)$를 계산할 수 있다.
+]
+
+#theorem("3.3.4")[
+  stereographic projection이 구면 상의 원을 복소평면 상의 원이나 직선으로 옮긴다.
+  구면 상의 원이 N (0, 0, 1)을 포함할 때만 직선이 된다 (iff 이다)
+]
+
+#proof[
+  증명은 구면 상의 원이 평면 H와 구면이 만나는 것으로 정해진다는 아이디어에서 시작한다.
+  $H = {(x, y, z) in RR^3 : (x, y, z) dot (x_0, y_0, z_0) = k }$
+
+  Q. $H inter SS^2$가 정말 원인가? 기하학적인 직관의 대수적 확인은 필요하다.
+
+  이후 전개는 $phi^(-1)$의 좌표값 계산을 하는 3.3.3을 활용한다.
+]
+
+이제 복소평면을 리만 구로 입체 투영을 통해 생각할 수 있다. 기하적인 실험 공간이 된다.
+
+#idea("리만 구면의 변환")[
+  It is worth thinking about, though beyond the scope of this book, how other
+  Mobius functions behave. For instance, a rotation $f(z) = e^(i theta) z$,
+  composed with $phi^(-1)$, can be seen to be a rotation of $SS^2$.
+
+  We encourage you to verify this and consider the harder problems of visualizaing
+  a real dilation, $f(z) = r z$, or a translation, $f(z) = z + b$.
+
+  We give the hint that a real dilation is in some sense dual to a rotation, in that
+  each moves points along perpendicular sets of circles. Translations can also
+  be visualized via how they move points along sets of circles.
+
+  책의 범위를 벗어나는 생각해 볼 과제로 주고 있다. 변환을 리만 구면의 변환으로
+  생각하는 연습은 좋은 기하학적 훈련이다.
+]
+
+위 과제 다음에 직접 $f(z) = 1/z$의 inversion을 구면의 변환으로 설명하는 계산이
+나온다. 기하적인 직관을 대수로 확인하는 과정이다. 또는 대수의 계산을 기하적인
+직관으로 쌓는다. 그림이 그려지는가?
+
+거리를 $SS^2$에 복소 공간에 맞춰서 줄 수 있다. 전개해 나갈 수는 있지만 아직
+역량이 안 된다. 필요를 모르기도 하고 충분한 경험이 없기 때문이다.
+
+
+== Exponential and trigonometric functions
+
+#definition("3.4.1")[
+  $exp(z) := e^x (cos y + i sin y) = e^x e^(i y)$
+
+]
+
+#theorem("3.4.2")[
+  (a) 곱하기와 더하기
+
+  (b) 역수
+
+  (c) 주기 $2 pi i$
+
+  (d) 절대값 (modulus)
+
+  (e) 양수
+
+  (f) 미분
+]
 
 
 
