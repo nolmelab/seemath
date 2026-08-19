@@ -5,3 +5,9 @@ edition = "2024"
 
 [dependencies]
 iced = { path = "../iced" }
+iced_core = { path = "../iced/core", features = ["advanced"] }
+iced_futures = { path = "../iced/futures" }
+iced_graphics = { path = "../iced/graphics" }
+iced_runtime = { path = "../iced/runtime" }
+iced_widget = { path = "../iced/widget" }
+iced_program = { path = "../iced/program" }

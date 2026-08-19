@@ -1,0 +1,12 @@
+[package]
+name = "vello_winit_minimal"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Vello 2D GPU Renderer
+vello = "0.3"
+
+# Windowing
+winit = "0.30"
+pollster = "0.3"
