@@ -84,4 +84,9 @@ mod test {
     fn test_rectangle() {
         // Rectangle represents a boxed region located at top-left corner.
     }
+
+    #[test]
+    fn test_rotation() {
+        
+    }
 }

@@ -1,0 +1,15 @@
+[package]
+name = "analysis"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+vello = { path = "../vello/vello" }
+pollster = "0.4"
+# WSL2 uses XWayland. Keeping only Winit's X11 backend avoids its default
+# preference for Wayland whenever WAYLAND_DISPLAY happens to be present.
+winit = { version = "0.30", default-features = false, features = ["rwh_06", "x11"] }
+
+[[bin]]
+name = "app_1"
+path = "src/app_1.rs"
