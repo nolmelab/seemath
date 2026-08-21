@@ -30,6 +30,7 @@ theorem TEqApl : f = g ↔ ∀ (a : A), f a = g a := by
 variable (h : B → C)
 
 #check h ∘ f
+#check (h ∘ f) a = h ( f a )
 
 theorem TCompAss {A B : Type} {f : A → B} {g : B → C} {h : C → D} :
 h ∘ (g ∘ f) = (h ∘ g) ∘ f := by
@@ -115,33 +116,47 @@ f a1 = f a2 ∧ a1 ≠ a2 := by
   apply Iff.intro
   intro h1
   unfold injective at h1
-  apply byContradiction 
-  intro h_no_exists 
-  apply h1 
-  intro a1 a2 h_feq 
-  apply byContradiction 
-  intro h_neq 
-  apply h_no_exists 
-  exact ⟨ a1, a2, h_feq, h_neq ⟩ 
+  apply byContradiction
+  intro h_no_exists
+  apply h1
+  intro a1 a2 h_feq
+  apply byContradiction
+  intro h_neq
+  apply h_no_exists
+  exact ⟨ a1, a2, h_feq, h_neq ⟩
 
-  intro h2 h_inj 
-  rcases h2 with ⟨ a1, a2, h_eq, h_neq ⟩ 
-  exact h_neq (h_inj h_eq) 
+  intro h2 h_inj
+  rcases h2 with ⟨ a1, a2, h_eq, h_neq ⟩
+  exact h_neq (h_inj h_eq)
 
 
-  
- 
+
+
 
 -- The composition of injective functions is injective
 theorem TCompInj {A B : Type}  {f : A → B} {g : B → C} (h1 : injective f)
-(h2 : injective g) : injective (g ∘ f) := by sorry
+(h2 : injective g) : injective (g ∘ f) := by
+  intro a
+  intro a₂
+  -- 핵심은 Lean에서 h1, h2를 “조건”이 아니라 함수처럼 적용할 수 있는 증명으로 보는 것입니다.
+  intro hdef
+  apply h1
+  apply h2
+  exact hdef
 
 -- If the composition (g∘f) is injective, then f is injective
 theorem TCompRInj {A B : Type} {f : A → B} {g : B → C} (h1 : injective (g ∘ f))
-: (injective f) := by sorry
+: (injective f) := by
+  intro a
+  intro a₂
+  intro hf
+  -- injective (g ∘ f)
+  --
 
 -- Injective and Monomorphism are equivalent concepts
-theorem TCarMonoInj {A B : Type} {f : A → B} : injective f ↔ monomorphism f := by sorry
+theorem TCarMonoInj {A B : Type} {f : A → B} : injective f ↔ monomorphism f := by
+  sorry
 
 -- If a function has a left inverse then it is injective
-theorem THasLeftInvtoInj {A B : Type} {f : A → B} : hasleftinv f → injective f := by sorry
+theorem THasLeftInvtoInj {A B : Type} {f : A → B} : has_left_inv f → injective f := by
+  sorry

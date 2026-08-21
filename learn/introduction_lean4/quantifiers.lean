@@ -126,6 +126,7 @@ theorem E3 : (∃ (a : A), P a ∧ R) ↔ (∃ (a : A), P a) ∧ R := by
 
 theorem P_TO_Q {P : Prop}{Q : Prop} (p : P) (q : Q) : P → Q := by 
   intro hP 
+  exact q
 
 
 
