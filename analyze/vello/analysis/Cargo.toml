@@ -13,3 +13,7 @@ winit = { version = "0.30", default-features = false, features = ["rwh_06", "x11
 [[bin]]
 name = "app_1"
 path = "src/app_1.rs"
+
+[[bin]]
+name = "app_2"
+path = "src/app_2.rs"
