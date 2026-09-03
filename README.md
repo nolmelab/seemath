@@ -1,38 +1,30 @@
 # seemath 
 
-youtube 채널 @see-math에 공부하는 내용을 정리하고 공유하기로 했습니다. 
+Study math while building a tool to learn from Mathlib of Lean. 
 
-여기에는 typst로 정리하는 내용들을 공유할 예정입니다. 
+## Plan 
 
-## 2026년 5월 ~ 12월 
+- 2026 
+  - Learn Lean 
+  - Design and implement seemath 
+    - Analyze vello 
+    - Analyze typst 
+    - Analyze manim 
+    - Render typst into seemath 
+    - Implement or integrate code editor 
+    - Implement cosmograph of mathlib 
 
-- 서울대 미적분학 2 
-- 공학 수학
-- 복소 해석학 
-- 대수학 - Fraleigh
+  - Start learning math 
+    - Mathematics in Lean 
+    - Natural number game 
+    - Analysis in Lean 
+    - Algebra in Lean 
 
-## 2027년 
+- 2027 
+  - Further contents with mathlib in analysis and algebra 
+  - Differential geometry and topology in Lean 
+  - Problem solving with Lean 
+  - Learn more math 
+  - Finish undergrad math
 
-- Fourier Analysis 
-- Complex Analysis 
-- General Topology
-- Measure Theory 
-- 대수학 - Paolo Aluffi 
 
-## 2028년 
-
-- Functional Analysis 
-- Differential Equations
-- 대수학 - Paolo Aluffi 
-
-## 2029년 
-
-- Differential Geomery 
-- Algebraic Topology 
-- Mechanics 
-
-## 2030년 
-
-- Algebraic Geometry 
-- Stochastic Calculus 
-- Information Geometry 

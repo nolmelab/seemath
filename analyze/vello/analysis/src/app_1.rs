@@ -121,12 +121,15 @@ impl ApplicationHandler for App {
             return;
         };
 
+        println!("Resuming Vello app");
+
         let window = cached_window.take().unwrap_or_else(|| {
             let attributes = Window::default_attributes()
                 .with_title("Vello minimal feature demo")
                 .with_inner_size(LogicalSize::new(800, 600));
             Arc::new(event_loop.create_window(attributes).expect("create window"))
         });
+
         let size = window.inner_size();
         let surface = pollster::block_on(self.context.create_surface(
             window.clone(),
